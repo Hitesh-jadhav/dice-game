@@ -52,17 +52,13 @@
 const express = require("express");
 const cors = require("cors");
 const crypto = require("crypto");
-const path = require("path");
 
 const app = express();
-const port = process.env.PORT || 3001; // Use environment variable for port
+const port = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors()); // Enable CORS for frontend-backend communication
-app.use(express.json()); // Parse JSON request bodies
-
-// Serve static files from the "out" directory
-app.use(express.static(path.join(__dirname, "../client/out")));
+app.use(cors());
+app.use(express.json());
 
 // POST endpoint for rolling dice
 app.post("/api/roll-dice", (req, res) => {
@@ -98,12 +94,7 @@ app.post("/api/roll-dice", (req, res) => {
   });
 });
 
-// Handle all other routes (serve the frontend)
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/out/index.html"));
-});
-
 // Start the server
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Backend server is running on http://localhost:${port}`);
 });
