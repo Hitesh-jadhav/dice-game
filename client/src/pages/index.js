@@ -55,7 +55,7 @@ export default function Home() {
   const handleRoll = async () => {
     if (!wallet || !betAmount || betAmount > wallet.balance) return;
   
-    const response = await fetch("http://localhost:3001/api/roll-dice", {
+    const response = await fetch("https://dice-game-backend.onrender.com/api/roll-dice", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ betAmount, currentBalance: wallet.balance }),
