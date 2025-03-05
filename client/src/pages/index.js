@@ -92,17 +92,37 @@ export default function Home() {
   }
 
   return (
+    // <div className="container">
+    //   <h1>Provably Fair Dice Game</h1>
+    //   <Balance balance={wallet.balance} address={wallet.address} />
+    //   <BetInput betAmount={betAmount} setBetAmount={setBetAmount} />
+    //   <DiceLine result={result} />
+    //   <RollButton handleRoll={handleRoll} />
+
+    //   {/* Add Reset Balance Button */}
+    //   <button onClick={resetBalance} className="reset-button">
+    //     Reset Balance
+    //   </button>
+
+    //   {result && (
+    //     <div className="verification">
+    //       <button onClick={() => verifyRoll(serverSeed, nonce, hash, result)}>
+    //         Verify Roll
+    //       </button>
+    //     </div>
+    //   )}
+    // </div>
     <div className="container">
       <h1>Provably Fair Dice Game</h1>
       <Balance balance={wallet.balance} address={wallet.address} />
       <BetInput betAmount={betAmount} setBetAmount={setBetAmount} />
       <DiceLine result={result} />
-      <RollButton handleRoll={handleRoll} />
-
-      {/* Add Reset Balance Button */}
-      <button onClick={resetBalance} className="reset-button">
-        Reset Balance
-      </button>
+      <div className="button-container">
+        <RollButton handleRoll={handleRoll} />
+        <button onClick={resetBalance} className="reset-button">
+          Reset Balance
+        </button>
+      </div>
 
       {result && (
         <div className="verification">
